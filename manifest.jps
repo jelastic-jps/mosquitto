@@ -1,0 +1,18 @@
+{
+    "jpsType": "install",
+    "jpsVersion": "0.99",
+    "id": "mosquitto-dev",
+    "name": "Mosquitto Dev",
+    "logo": "https://github.com/jelastic-jps/mosquitto/raw/master/images/mosquitto-logo.png",
+    "description": "Your dedicated Eclipse Mosquitto development environment in the cloud.",
+    "nodes": [{
+        "cloudlets": 16,
+        "displayName": "Mosquitto",
+        "image": "eclipse-mosquitto",
+        "nodeGroup": "cp",
+        "extip": true
+    }],
+    "success": {
+        "text": "Connect to the environment via Domain Name **${env.domain}** or Public IP **${nodes.cp.first.extIPs[0]}**"
+    }
+}
