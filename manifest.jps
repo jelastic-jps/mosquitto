@@ -13,6 +13,7 @@
         "extip": true
     }],
     "success": {
-        "text": "Connect to the environment via Domain Name **${env.domain}** or Public IP **${nodes.cp.first.extIPs[0]}**"
+        "text": "Connect to the environment via Domain Name **${env.domain}** or Public IP **${nodes.cp.first.extIPs[0]}**",
+        "email": "Connect to the environment via Domain Name **${env.domain}** or Public IP **${nodes.cp.first.extIPs[0]}**"
     }
 }
