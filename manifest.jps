@@ -13,7 +13,7 @@
         "extip": true
     }],
     "success": {
-        "text": "Connect to the environment via Domain Name **${env.domain}** or Public IP **${nodes.cp.first.extIPs[0]}**",
-        "email": "Connect to the environment via Domain Name **${env.domain}** or Public IP **${nodes.cp.first.extIPs[0]}**"
+        "text": "Connect to the environment via Domain Name **${env.domain}** and port <div  id='mosquitto-endpoints' style='padding-left: 10px'></div> <img src="https://raw.githubusercontent.com/jelastic-jps/smartfoxserver-2x/master/images/000000-0.png" onload=\"\"/>",
+        "email": false
     }
 }
