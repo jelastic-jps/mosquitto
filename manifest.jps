@@ -10,8 +10,7 @@
       "cloudlets": 16,
       "displayName": "Mosquitto",
       "image": "eclipse-mosquitto",
-      "nodeGroup": "cp",
-      "extip": true
+      "nodeGroup": "cp"
     }
   ],
   "onInstall": {
