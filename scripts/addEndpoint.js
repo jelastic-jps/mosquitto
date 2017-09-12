@@ -55,7 +55,7 @@ return oScripting.eval({
             "id": "Mosquitto",
             "name": "Mosquitto",
             "success": {
-                "email": "Connect to the environment via Domain Name ${env.domain} and port " + oResp.object.publicPort
+                "email": "To access your Mosquitto MQTT server, refer to the **${env.domain}** domain name with port " + oResp.object.publicPort
             }
         }
     })
