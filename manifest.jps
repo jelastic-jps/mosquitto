@@ -32,7 +32,7 @@
     }
   },
   "success": {
-    "text": "To access your Mosquitto MQTT server, refer to the **${env.domain}** domain name through either *<span id='mosquitto-endpoints'></span><img src='https://raw.githubusercontent.com/jelastic-jps/smartfoxserver-2x/master/images/000000-0.png' onload=\"!function(){var e,t=JProjectManager.GetActiveProject().GetAppByAppid('${env.appid}'),o=t.GetNodesByGroup('cp'),n=t.GetDomain()&&o.length,i='';!function p(){var t=Ext.get('mosquitto-endpoints');if(t)for(e=0;n>e;e+=1)o[e].endpoints.forEach(function(e){i=e.publicPort});else p.defer(100);t.update(i)}()}();\"/>* port (for external access from wherever in the Internet) or *1883* port (for connecting within internal Plaform network) specified",
+    "text": "To access your Mosquitto MQTT server, refer to the **${env.domain}** domain name through either <ul><li>*<span id='mosquitto-endpoints'></span><img src='https://raw.githubusercontent.com/jelastic-jps/smartfoxserver-2x/master/images/000000-0.png' onload=\"!function(){var e,t=JProjectManager.GetActiveProject().GetAppByAppid('${env.appid}'),o=t.GetNodesByGroup('cp'),n=t.GetDomain()&&o.length,i='';!function p(){var t=Ext.get('mosquitto-endpoints');if(t)for(e=0;n>e;e+=1)o[e].endpoints.forEach(function(e){i=e.publicPort});else p.defer(100);t.update(i)}()}();\"/>* port (for external access from wherever in the Internet)</li><li> <span>*1883*</span> port (for connecting within internal Plaform network)</li></ul>",
     "email": false
   }
 }
