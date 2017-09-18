@@ -25,4 +25,4 @@ Click **Install** and wait a minute till Jelastic configures everything for you.
 
 ![mosquitto-installed](images/mosquitto-installed.png)
 
-Here, your your MQTT server environment _domain name_ and _ports_ details are specified (required for connection of Mosquitto clients to this broker).
+Here, your MQTT server environment _domain name_ and _ports_ details are specified (required for connection of Mosquitto clients to this broker).
