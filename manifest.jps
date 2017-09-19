@@ -9,7 +9,7 @@
     "apps/dev-tools"
   ],
   "description": {
-    "text":"An open source <a href='http://mqtt.org/' target='_blank'>MQTT</a> message broker server with publish/subscribe model for the IoT (Internet of Things) networks management",
+    "text":"An open source <a href='http://mqtt.org/' target='_blank'>MQTT</a> message broker server with publish/subscribe messaging model for the IoT (Internet of Things) networks management",
     "short":"An open source MQTT message broker server for IoT (Internet of Things) networks management"
     },
   "nodes": [
