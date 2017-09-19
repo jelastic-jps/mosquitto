@@ -6,7 +6,7 @@
 
 The current package is designed for the one-click Eclipse Mosquitto MQTT server setup. Upon its installation, a new environment with the following topology specifics is created: 
 * contains a single Docker container with deployed [eclipse-mosquitto](https://hub.docker.com/r/_/eclipse-mosquitto/) image (_latest_ tag)
-* the default scaling limit for the Eclipse Mosquitto container is set to 16 dynamic cloudlets, i.e. up to _2 GiB_ of RAM and _6.4 GHz_ of CPU (can be manually adjusted through [topology wizard](https://docs.jelastic.com/setting-up-environment), if needed)
+* the default scaling limit for the Eclipse Mosquitto container is set to 8 dynamic cloudlets, i.e. up to _1 GiB_ of RAM and _3.2 GHz_ of CPU (can be manually adjusted through [topology wizard](https://docs.jelastic.com/setting-up-environment), if needed)
 * a dedicated [endpoint](https://docs.jelastic.com/endpoints) is automatically created to make your message broker available from anywhere over Internet (a  [Public IP](https://docs.jelastic.com/public-ipv4) address can be manually attached after installation for production usage)
 
 ## How to Install Eclipse Mosquitto into Jelastic Cloud
