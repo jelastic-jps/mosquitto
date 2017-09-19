@@ -14,7 +14,7 @@
     },
   "nodes": [
     {
-      "cloudlets": 16,
+      "cloudlets": 8,
       "displayName": "Mosquitto",
       "image": "eclipse-mosquitto",
       "nodeGroup": "cp"
