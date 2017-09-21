@@ -1,62 +1,49 @@
 //@req(nodeGroup, name, port)
 
-import com.hivext.api.environment.Environment;
-import com.hivext.api.development.Scripting;
-
-var APPID = getParam("TARGET_APPID"),
+var PROTOCOL = getParam("protocol", "TCP"),
+    APPID = getParam("TARGET_APPID"),
     SESSION = getParam("session"),
-    PROTOCOL = getParam("protocol", "TCP"),
-    oEnvService,
-    oEnvInfo,
+    bEndPointsEnabled,
+    sSuccessText = "",
     nNodesCount,
-    oScripting,
+    oEnvInfo,
     oResp,
     i;
 
-oEnvService = hivext.local.exp.wrapRequest(new Environment(APPID, SESSION));
-oScripting =  hivext.local.exp.wrapRequest(new Scripting({
-    serverUrl : "http://" + window.location.host.replace("app", "appstore") + "/",
-    session : SESSION
-}));
+oResp = jelastic.billing.account.GetQuotas("environment.endpoint.enabled");
 
+if (!oResp || oResp.result != 0) {
+    return oResp;
+}
 
-oEnvInfo = oEnvService.getEnvInfo();
+bEndPointsEnabled = oResp.array[0].value;
 
-if (!oEnvInfo.isOK()) {
+oEnvInfo = jelastic.environment.environment.GetEnvInfo(APPID, session);
+
+if (!oEnvInfo || oEnvInfo.result != 0) {
     return oEnvInfo;
 }
 
-oEnvInfo = toNative(oEnvInfo);
-
 nNodesCount = oEnvInfo.nodes.length;
 
-for (i = 0; i < nNodesCount; i += 1) {
-    if (oEnvInfo.nodes[i].nodeGroup == nodeGroup) {
-        oResp = oEnvService.addEndpoint({
-            name: name,
-            nodeid: oEnvInfo.nodes[i].id,
-            privatePort: port,
-            protocol: PROTOCOL
-        });
+if (bEndPointsEnabled) {
+    for (i = 0; i < nNodesCount; i += 1) {
+        if (oEnvInfo.nodes[i].nodeGroup == nodeGroup) {
+            oResp = jelastic.environment.environment.AddEndpoint(APPID, session, oEnvInfo.nodes[i].id, port, PROTOCOL, name);
 
-        if (!oResp.isOK()) {
-            return oResp;
-        }
-        oResp = toNative(oResp);
-    }
-}
-
-return oScripting.eval({
-    script : "InstallApp",
-    targetAppid : APPID,
-    manifest : toJSON({
-        "jpsType" : "update",
-        "application" : {
-            "id": "Mosquitto",
-            "name": "Mosquitto",
-            "success": {
-                "email": "To access your Mosquitto MQTT server, refer to the **${env.domain}** domain name through either *" + oResp.object.publicPort + "* port (for external access from wherever in the Internet) or *1883* port (for connecting within internal Plaform network)"
+            if (!oResp || oResp.result != 0) {
+                return oResp;
             }
         }
-    })
-});
+    }
+
+    sSuccessText = "To access your Mosquitto MQTT server, refer to the <b>${env.domain}</b> domain name through either<ul><li> <i>" + oResp.object.publicPort + "</i> port (for external access from wherever in the Internet)</li><li> or <i>1883</i> port (for connecting within Plaform internal network, i.e. from another Jelastic container).</li></ul>";
+} else {
+    sSuccessText = "To access your Mosquitto MQTT server, refer to the <b>tcp://${env.domain}:1883</b> (for connecting within Plaform internal network, i.e. from another Jelastic container).<br><br>For external access from outside the Platform, the Endpoints functionality should be enabled for your account - please, convert to billing or contact support to get this possibility. Then refer to the same-named section within your environment settings and add a new endpoint (with Private Port <i>1883</i> and TCP protocol use) to its compute node.";
+}
+
+return {
+    result: "success",
+    message: sSuccessText,
+    email: sSuccessText
+};
