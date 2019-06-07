@@ -1,34 +1,30 @@
-{
-  "jpsType": "install",
-  "jpsVersion": "1.2",
-  "id": "mosquitto-dev",
-  "name": "Eclipse Mosquitto",
-  "logo": "https://github.com/jelastic-jps/mosquitto/raw/master/images/mosquitto-logo.png",
-  "categories": [
-    "apps/dev-and-admin-tools",
-    "apps/dev-tools"
-  ],
-  "description": {
-    "text":"An open source <a href='http://mqtt.org/' target='_blank'>MQTT</a> message broker server with publish/subscribe messaging model for the IoT (Internet of Things) networks management",
-    "short":"An open source MQTT message broker server for IoT (Internet of Things) networks management"
-    },
-  "nodes": [
-    {
-      "cloudlets": 8,
-      "displayName": "Mosquitto",
-      "image": "eclipse-mosquitto",
-      "nodeGroup": "cp"
-    }
-  ],
-  "onInstall": {
-    "executeScript": {
-      "type": "js",
-      "script": "https://raw.githubusercontent.com/jelastic-jps/mosquitto/master/scripts/addEndpoint.js",
-      "params": {
-        "nodeGroup": "cp",
-        "name": "Mosquitto",
-        "port": 1883
-      }
-    }
-  }
-}
+jpsType: install
+jpsVersion: '1.2'
+id: mosquitto-dev
+name: Eclipse Mosquitto
+logo: https://github.com/jelastic-jps/mosquitto/raw/master/images/mosquitto-logo.png
+categories:
+- apps/dev-and-admin-tools
+- apps/dev-tools
+description:
+  text: An open source <a href='http://mqtt.org/' target='_blank'>MQTT</a> message
+    broker server with publish/subscribe messaging model for the IoT (Internet of
+    Things) networks management
+  short: An open source MQTT message broker server for IoT (Internet of Things) networks
+    management
+nodes:
+- cloudlets: 8
+  displayName: Mosquitto
+  image: eclipse-mosquitto
+  nodeGroup: cp
+  volumes: 
+    - /mosquitto/config
+
+onInstall:
+  executeScript:
+    type: js
+    script: https://raw.githubusercontent.com/jelastic-jps/mosquitto/master/scripts/addEndpoint.js
+    params:
+      nodeGroup: cp
+      name: Mosquitto
+      port: 1883
