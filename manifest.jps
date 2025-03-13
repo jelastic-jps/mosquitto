@@ -7,7 +7,7 @@ categories:
 - apps/dev-and-admin-tools
 - apps/dev-tools
 description:
-  text: An open-source lightweight <a href='https://mqtt.org/' target='_blank'>MQTT</a> message broker server with a publish/subscribe messaging model for M2M (machine to machine) telemetry in low-bandwidth environments.
+  text: An open-source lightweight [MQTT](https://mqtt.org/) message broker server with a publish/subscribe messaging model for M2M (machine to machine) telemetry in low-bandwidth environments.
   short: An open-source lightweight MQTT message broker server for IoT (Internet of Things) network management.
 nodes:
 - cloudlets: 8

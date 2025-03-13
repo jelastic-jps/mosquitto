@@ -37,9 +37,9 @@ if (bEndPointsEnabled) {
         }
     }
 
-    sSuccessText = "To access your Eclipse Mosquitto MQTT server, refer to the <b>${env.domain}</b> domain name through:<ul><li><i>" + oResp.object.publicPort + "</i> port (for external access from anywhere on the Internet)</li><li><i>1883</i> port (for connections inside the platform's internal network)</li></ul>";
+    sSuccessText = "To access your Eclipse Mosquitto MQTT server, refer to the **${env.domain}** domain name through:\n\n- *" + oResp.object.publicPort + "* port (for external access from anywhere on the Internet)\n- *1883* port (for connections inside the platform's internal network)";
 } else {
-    sSuccessText = "To access your Eclipse Mosquitto MQTT server, refer to the <b>tcp://${env.domain}:1883</b> (for connections inside the platform's internal network).<br><br>For external access from outside the platform, the endpoints or public IP functionality should be enabled for your account - please convert to billing or contact support for assistance. Refer to the appropriate feature documentation to set up the external connection.";
+    sSuccessText = "To access your Eclipse Mosquitto MQTT server, refer to the **tcp://${env.domain}:1883** (for connections inside the platform's internal network).\n\nFor external access from outside the platform, the endpoints or public IP functionality should be enabled for your account - please convert to billing or contact support for assistance. Refer to the appropriate feature documentation to set up the external connection.";
 }
 
 return {
