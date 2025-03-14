@@ -37,9 +37,9 @@ if (bEndPointsEnabled) {
         }
     }
 
-    sSuccessText = "To access your Mosquitto MQTT server, refer to the <b>${env.domain}</b> domain name through either<ul><li> <i>" + oResp.object.publicPort + "</i> port (for external access from wherever in the Internet)</li><li> or <i>1883</i> port (for connecting within Plaform internal network, i.e. from another Jelastic container).</li></ul>";
+    sSuccessText = "To access your Eclipse Mosquitto MQTT server, refer to the **${env.domain}** domain name through:\n\n- *" + oResp.object.publicPort + "* port (for external access from anywhere on the Internet)\n- *1883* port (for connections inside the platform's internal network)";
 } else {
-    sSuccessText = "To access your Mosquitto MQTT server, refer to the <b>tcp://${env.domain}:1883</b> (for connecting within Plaform internal network, i.e. from another Jelastic container).<br><br>For external access from outside the Platform, the Endpoints functionality should be enabled for your account - please, convert to billing or contact support to get this possibility. Then refer to the same-named section within your environment settings and add a new endpoint (with Private Port <i>1883</i> and TCP protocol use) to its compute node.";
+    sSuccessText = "To access your Eclipse Mosquitto MQTT server, refer to the **tcp://${env.domain}:1883** (for connections inside the platform's internal network).\n\nFor external access from outside the platform, the endpoints or public IP functionality should be enabled for your account - please convert to billing or contact support for assistance. Refer to the appropriate feature documentation to set up the external connection.";
 }
 
 return {
